@@ -23,17 +23,6 @@ class Product extends Model
         'activo'
     ];
 
-
-    protected $visible = [
-        'codigo',
-        'id_categoria',
-        'nombre',
-        'descripcion',
-        'precio',
-        'imagen',
-        'activo'
-    ];
-
     public function category()
     {
         return $this->belongsTo(Category::class, 'id_categoria', 'id');

@@ -21,21 +21,6 @@ class CategoryController extends Controller
         return Sender::success(null, CategoryResource::collection($categories));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-        ]);
-
-        $categories = Category::create([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-
-        return Sender::success('Category created successfully', $categories, 201);
-    }
-
     public function show($id)
     {
         $category = Category::find($id);

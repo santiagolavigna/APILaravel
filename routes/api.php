@@ -14,16 +14,18 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::controller(ProductController::class)->group(function () {
-    Route::get('products', 'index');
-    // Route::post('todo', 'store');
-    // Route::get('todo/{id}', 'show');
-    // Route::put('todo/{id}', 'update');
-    // Route::delete('todo/{id}', 'destroy');
+    Route::get('products/list', 'index');
+    Route::get('productsBO/list', 'indexBO');
+    Route::get('products/category/{id}', 'indexCategory');
+    Route::get('products/quantity/all', 'quantity');
+    Route::get('products/find', 'find');
+    Route::get('product/{id}', 'show');
+    Route::post('product/update/{id}', 'update');
+
 }); 
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('categories/list', 'index');
-    // Route::post('todo', 'store');
+     Route::get('categories/list', 'index');
      Route::get('categories/{id}', 'show');
      Route::put('category/edit/{id}', 'update');
      Route::get('categories/quantity/all', 'quantity');
