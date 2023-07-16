@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use App\Http\Resources\CategoryResource;
 class ProductResource extends JsonResource
 {
     /**
@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
             'precio' => $this->precio,
             'imagen' => $this->imagen,
             'activo' => $this->activo,
-            'category' => $this->category,
+            'category' => CategoryResource::make($this->category),
         ];
     }
 }
